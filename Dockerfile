@@ -5,6 +5,7 @@ RUN yum -y groupinstall "Development Tools"
 RUN yum -y install epel-release && \
     yum -y install python-devel python-pip lapack-devel freetype-devel \
            libpng-devel libjpeg-turbo-devel ImageMagick
+RUN pip install --upgrade pip
 RUN pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.2.0-cp27-none-linux_x86_64.whl
 RUN pip install pandas scipy jupyter && \
     pip install scikit-learn matplotlib Pillow && \

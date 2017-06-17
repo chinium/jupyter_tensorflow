@@ -7,7 +7,7 @@ RUN yum -y install epel-release && \
            libpng-devel libjpeg-turbo-devel ImageMagick
 RUN pip install --upgrade pip
 RUN pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.2.0-cp27-none-linux_x86_64.whl
-RUN pip install pandas scipy jupyter && \
+RUN pip install pandas scipy jupyter-client==4.3.0 jupyter-console=4.1.1 jupyter && \
     pip install scikit-learn matplotlib Pillow && \
     pip install google-api-python-client
 RUN cd /etc/yum.repos.d && \
@@ -16,7 +16,7 @@ RUN cd /etc/yum.repos.d && \
     curl -LO http://www.graphviz.org/pub/graphviz/stable/redhat/el7Server/x86_64/os/gts-0.7.6-21.20111025.el7.x86_64.rpm && \
     yum -y install graphviz-2.38.0-1.el7 graphviz-gd-2.38.0-1.el7 gts-0.7.6-21.20111025.el7.x86_64.rpm
 
-RUN jupyter notebook --generate-config --allow-root && \
+RUN jupyter notebook --generate-config && \
     ipython profile create
 RUN echo "c.NotebookApp.ip = '*'" >>/root/.jupyter/jupyter_notebook_config.py && \
     echo "c.NotebookApp.open_browser = False" >>/root/.jupyter/jupyter_notebook_config.py && \

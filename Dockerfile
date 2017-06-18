@@ -7,7 +7,7 @@ RUN yum -y install epel-release && \
            libpng-devel libjpeg-turbo-devel ImageMagick
 RUN pip install --upgrade pip
 RUN pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.2.0-cp27-none-linux_x86_64.whl
-RUN pip install pandas scipy jupyter-client==4.3.0 jupyter-console=4.1.1 jupyter && \
+RUN pip install pandas scipy jupyter-client==4.3.0 jupyter-console==4.1.1 jupyter && \
     pip install scikit-learn matplotlib Pillow && \
     pip install google-api-python-client
 RUN cd /etc/yum.repos.d && \

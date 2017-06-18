@@ -7,9 +7,10 @@ RUN yum -y install epel-release && \
            libpng-devel libjpeg-turbo-devel ImageMagick
 RUN pip install --upgrade pip
 RUN pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.2.0-cp27-none-linux_x86_64.whl
-RUN pip install pandas scipy jupyter-client==4.3.0 jupyter-console==4.1.1 jupyter && \
-    pip install scikit-learn matplotlib Pillow && \
-    pip install google-api-python-client
+RUN pip install pandas==0.18.1 scipy==0.17.1 && \
+    pip install jupyter-core==4.1.0 notebook==4.2.1 jupyter-client==4.3.0 jupyter-console==4.1.1 jupyter==1.0.0 && \
+    pip install scikit-learn==0.17.1 matplotlib==1.5.1 Pillow==3.2.0 && \
+    pip install google-api-python-client==1.5.1
 RUN cd /etc/yum.repos.d && \
     curl -LO http://www.graphviz.org/graphviz-rhel.repo && \
     cd /tmp && \
